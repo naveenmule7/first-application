@@ -1,0 +1,82 @@
+
+
+
+<div class="component-style card">
+  <div class="mb-1" style="text-align: right;">
+    <button (click)="addPost()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="bi bi-house-add"></i>  Add Post
+    </button>
+  </div>
+<table class="table table-bordered border-primary">
+    <thead>
+        <tr>
+          <th>ID.No</th>
+          <th>My user ID.</th>
+          <th>Title</th>
+          <th>Body</th>
+                  
+        </tr> 
+      </thead>
+      <tbody>
+        <tr *ngFor="let navpost of posts | paginate: { itemsPerPage: 7, currentPage: pageNumber }">
+          <th >{{ navpost.id }}</th>
+          <td>{{ navpost.userId }}</td>
+          <td>{{navpost.title}}</td>
+          
+          <td>
+            <a [routerLink]="['/post',navpost.id,]" 
+            [queryParams]="{'title':navpost.title,'name': 'naveenmule'}" class="btn btn-info">
+              <i class="bi bi-eye-fill" style="color: red;"></i>
+          </a>
+            &nbsp;
+            <button (click)="editPost(navpost)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            &nbsp;
+            <button (click)="delete(navpost.id)"  class="btn btn-danger">
+              <i class="bi bi-x-octagon"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4" style="text-align: center;">
+            <pagination-controls (pageChange)="pageNumber = $event"></pagination-controls>
+          </td>
+        </tr>
+       
+      </tbody>
+      
+ </table>
+ 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{title}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          
+          
+          <div class="mb-2">
+            <input [(ngModel)]="postModel.userId" name="userId" type="number" placeholder="Enter userId" class="form-control">
+          </div>
+          <div class="mb-2">
+            <input [(ngModel)]="postModel.title" name="title" type="text" placeholder="Enter Title" class="form-control">
+          </div>
+          <div class="mb-2">
+            <textarea [(ngModel)]="postModel.body" name="body"  placeholder="Enter Body" class="form-control"></textarea>
+          </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="savePost()" type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

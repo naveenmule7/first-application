@@ -1,0 +1,70 @@
+<div class="component-style card">
+    <form #contactForm="ngForm">
+        <div class="mb-3">
+          <label for="fname" class="form-label">First Name</label>
+          <input #fname="ngModel" ngModel name="fname" required minlength="5" type="text" class="form-control" 
+            id="fname">
+            <div *ngIf="fname.touched && fname.invalid" >
+                <div *ngIf="fname.errors?.['required']" class="alert alert-danger" role="alert">
+                    First name is not mentioned.....#
+                 </div>
+                <div *ngIf="fname.errors?.['minlength']" class="alert alert-danger" role="alert">
+                please enter minimum 5 characters...#
+                 </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="lname" class="form-label">Last Name</label>
+            <input #lname="ngModel" ngModel name="lname" required minlength="5" type="text" class="form-control" id="lname">
+              <div *ngIf="lname.touched && lname.invalid" >
+                  <div *ngIf="lname.errors?.['required']" class="alert alert-danger" role="alert">
+                      Last name is not mentioned.....#
+                   </div>
+                  <div *ngIf="lname.errors?.['minlength']" class="alert alert-danger" role="alert">
+                  please enter minimum 5 characters...#
+                   </div>
+              </div>
+        </div>
+        <div class="mb-3">
+            <label for="gmail" class="form-label">G-mail</label>
+            <input #gmail="ngModel" ngModel name="gmail" required pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" minlength="10" type="text" class="form-control" id="gmail">
+              <div *ngIf="gmail.touched && gmail.invalid" >
+                  <div *ngIf="gmail.errors?.['required']" class="alert alert-danger" role="alert">
+                      Gmail is not mentioned.....#
+                   </div>
+                  <div *ngIf="gmail.errors?.['minlength']" class="alert alert-danger" role="alert">
+                  please enter minimum 10 characters...#
+                   </div>
+              </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input #password="ngModel" ngModel name="password" required minlength="5" type="password" class="form-control" id="password">
+              <div *ngIf="password.touched && password.invalid" >
+                  <div *ngIf="password.errors?.['required']" class="alert alert-danger" role="alert">
+                      password is not mentioned.....#
+                   </div>
+                  <div *ngIf="password.errors?.['minlength']" class="alert alert-danger" role="alert">
+                  please enter minimum 5 characters...#
+                   </div>
+              </div>
+          </div>
+          <div class="mb-3">
+            <label for="summary" class="form-label">Summary</label>
+            <textarea #summary="ngModel" ngModel name="summary" required minlength="50" type="summary" class="form-control" id="password"></textarea>
+              <div *ngIf="summary.touched && summary.invalid" >
+                  <div *ngIf="summary.errors?.['required']" class="alert alert-danger" role="alert">
+                       Summary is not mentioned.....#
+                   </div>
+                  <div *ngIf="summary.errors?.['minlength']" class="alert alert-danger" role="alert">
+                  please enter some text- minimum 50 letters...#
+                   </div>
+              </div>
+    </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button [disabled]="contactForm.invalid" (click)="getLog(gmail)" type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>

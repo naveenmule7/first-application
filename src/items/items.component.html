@@ -1,0 +1,63 @@
+<!-- <div class="card">
+    <table class="table table-bordered" >
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>category</th>
+                <th>price</th>
+                <th>image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.unitPrice }}</td>
+                <td><img height="100" width="100" [src]="item.imageUrl" ></td>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.unitPrice }}</td>
+                <td><img height="100" width="100" [src]="item.imageUrl" ></td>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.unitPrice }}</td>
+                <td><img height="100" width="100" [src]="item.imageUrl" ></td>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.unitPrice }}</td>
+                <td><img height="100" width="100" [src]="item.imageUrl" ></td>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.unitPrice }}</td>
+                <td><img height="100" width="100" [src]="item.imageUrl" ></td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+
+<div class="card component-style">
+    <h1 style="text-align: center;font-family: fantasy;">MY CART SHOPPING</h1>
+    <h3>Items in Cart : {{ itemInCart }}</h3>
+    <div class="row p-1">
+        <ng-container *ngFor="let item of items; let _index = index">
+            <div class="col">
+                <item (itemClicked)="updateItemsInCartCount($event)" [phone]="9381417724"  [itemData]="item"></item>
+            </div>
+        </ng-container>
+    </div>
+</div>

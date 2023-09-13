@@ -1,0 +1,173 @@
+<div class="component-style card ">
+    <!-- <div class="mb-3">
+      <label for="navType" class="form-label">NavType</label>
+      <input  type="navType" [value]="navType" readonly disabled class="form-control" id="navType">
+    </div> -->
+      <h1><u> 2 way binding in angular</u></h1>
+      <div class="mb-3">
+        <label for="emailAddress" class="form-label">Email address</label>
+        <input [(ngModel)]="navModel.emailAddress" type="email" class="form-control" id="emailAddress">
+
+
+      </div>
+       <!-- 2 way data binding -->
+      <div>
+        <input [(ngModel)]="navModel.emailAddress" disabled type="email" class="form-control" id="emailAddress">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input [(ngModel)]="navModel.password" type="password" class="form-control" id="password">
+      </div>
+       <!-- 2 way data binding -->
+      <div>
+        <input [(ngModel)]="navModel.password" disabled type="password" class="form-control" id="password">
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="Checkme">
+        <label class="form-check-label" for="Checkme">Check me out</label>
+      </div>
+      <button (click)="navreg()" type="submit" class="btn btn-primary">submit</button>
+  </div>
+
+  
+  
+  
+  <div class="component-style card">
+    <h1>REGISTRATION PAGE</h1>
+    <div class="mb-3">
+      <label for="fname" class="form-label">First Name</label>
+      <input #fname="ngModel" ngModel name="fname" required minlength="10" [(ngModel)]="navModel.fname" type="text" class="form-control" id="fname">
+      <div *ngIf="fname.touched && fname.invalid" >
+        <div *ngIf="fname.errors?.['required']" class="alert alert-danger" role="alert">
+            First name is not mentioned.....#
+         </div>
+        <div *ngIf="fname.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="mname" class="form-label">Middle Name</label>
+      <input #mname="ngModel" ngModel name="mname" required minlength="10" [(ngModel)]="navModel.mname" type="text" class="form-control" id="mname">
+      <div *ngIf="mname.touched && mname.invalid" >
+        <div *ngIf="mname.errors?.['required']" class="alert alert-danger" role="alert">
+            Middle Name is not mentioned.....#
+         </div>
+        <div *ngIf="mname.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="lname" class="form-label">Last Name</label>
+      <input #lname="ngModel" ngModel name="lname" required minlength="10" [(ngModel)]="navModel.lname" type="text" class="form-control" id="lname">
+      <div *ngIf="lname.touched && lname.invalid" >
+        <div *ngIf="lname.errors?.['required']" class="alert alert-danger" role="alert">
+            Last Name is not mentioned.....#
+         </div>
+        <div *ngIf="lname.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input #phone="ngModel" ngModel name="phone" required minlength="10" [(ngModel)]="navModel.phone" type="text" class="form-control" id="phone">
+      <div *ngIf="phone.touched && phone.invalid" >
+        <div *ngIf="phone.errors?.['required']" class="alert alert-danger" role="alert">
+            Phone number is not mentioned.....#
+         </div>
+        <div *ngIf="phone.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="gmail" class="form-label">G-Mail</label>
+      <input #gmail="ngModel" ngModel name="gmail" required minlength="10" [(ngModel)]="navModel.gmail" type="text" class="form-control" id="gmail">
+      <div *ngIf="gmail.touched && gmail.invalid" >
+        <div *ngIf="gmail.errors?.['required']" class="alert alert-danger" role="alert">
+            gmail is not mentioned.....#
+         </div>
+        <div *ngIf="gmail.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+      
+    <div class="mb-3">
+      <label for="passcode" class="form-label">Passcode</label>
+      <input #passcode="ngModel" ngModel name="passcode" required minlength="10" [(ngModel)]="navModel.passcode" type="text" class="form-control" id="passcode">
+      <div *ngIf="passcode.touched && passcode.invalid" >
+        <div *ngIf="passcode.errors?.['required']" class="alert alert-danger" role="alert">
+            passcode is not mentioned.....#
+         </div>
+        <div *ngIf="passcode.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="Checkme">
+        <label class="form-check-label" for="Checkme">Check me out</label>
+      </div>
+      <button (click)="nagreg()" type="submit" class="btn btn-primary">REGISTER</button>
+  </div>
+
+  
+  <div class="component-style card">
+    <h1>PERSONAL DETAILS REGISTRATION</h1>
+    <div class="mb-3">
+      <label for="candidatename" class="form-label">CANDIDATE NAME</label>
+      <input #candidatename="ngModel" ngModel name="candidatename" required minlength="10" [(ngModel)]="navModel.candidatename" type="text" class="form-control" id="candidatename">
+      <div *ngIf="candidatename.touched && candidatename.invalid" >
+        <div *ngIf="candidatename.errors?.['required']" class="alert alert-danger" role="alert">
+            Candidate Name is not mentioned.....#
+         </div>
+        <div *ngIf="candidatename.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="mothername" class="form-label">MOTHER NAME</label>
+      <input #mothername="ngModel" ngModel name="mothername" required minlength="10" [(ngModel)]="navModel.mothername" type="text" class="form-control" id="mothername">
+      <div *ngIf="mothername.touched && mothername.invalid" >
+        <div *ngIf="mothername.errors?.['required']" class="alert alert-danger" role="alert">
+            Mother Name is not mentioned.....#
+         </div>
+        <div *ngIf="mothername.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="fathername" class="form-label">FATHER NAME</label>
+      <input #fathername="ngModel" ngModel name="fathername" required minlength="10" [(ngModel)]="navModel.fathername" type="text" class="form-control" id="fathername">
+      <div *ngIf="fathername.touched && fathername.invalid" >
+        <div *ngIf="fathername.errors?.['required']" class="alert alert-danger" role="alert">
+            Father Name is not mentioned.....#
+         </div>
+        <div *ngIf="fathername.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="residentialaddress" class="form-label">RESIDENTIOAL ADDRESS</label>
+      <textarea #residentialaddress="ngModel" ngModel name="residentialaddress" required minlength="10" [(ngModel)]="navModel.residentialaddress" type="text" class="form-control" id="residentialaddress"></textarea>
+      <div *ngIf="residentialaddress.touched && residentialaddress.invalid" >
+        <div *ngIf="residentialaddress.errors?.['required']" class="alert alert-danger" role="alert">
+            Residentioal Address is not mentioned.....#
+         </div>
+        <div *ngIf="residentialaddress.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="Checkme">
+        <label class="form-check-label" for="Checkme">Check me out</label>
+      </div>
+      <button (click)="candidatereg()" type="submit" class="btn btn-primary">SIGN-UP</button>
+  </div>

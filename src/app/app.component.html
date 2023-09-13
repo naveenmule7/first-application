@@ -1,0 +1,182 @@
+<!-- <h1>hi this is naveen </h1>
+
+<registration></registration>
+<contact></contact>
+<register></register>
+<hero></hero>
+<ul>
+    <li *ngFor = 'let nav of language'>
+        {{nav}}
+    </li>
+</ul>
+<h1>{{title}}</h1> 
+property binding 
+<h2 [textContent]="title"></h2> 
+string interpolation
+
+ <table class="table table-striped">
+    <tbody >
+    <tr style="font-family: fantasy;">
+        <th>S.NO</th>
+        <th>NAME</th>
+        <th>A.I</th>
+        <th>DBMS</th>
+        <th>ML</th>
+        <th>TOTAL</th>
+    </tr>
+    <tr>
+        <td>501</td>
+        <td>YUGENDRA</td>
+        <td>60</td>
+        <td>20</td>
+        <td>20</td>
+        <th>100</th>
+    </tr>
+
+    <tr>
+        <td>502</td>
+        <td>GUNA</td>
+        <td>60</td>
+        <td>20</td>
+        <td>20</td>
+        <th>100</th>
+    </tr>
+
+    <tr>
+        <td>503</td>
+        <td>SATISH</td>
+        <td>60</td>
+        <td>20</td>
+        <td>20</td>
+        <th>100</th>
+    </tr>
+    <tr>
+        <td>504</td>
+        <td>VISHNU</td>
+        <td>60</td>
+        <td>20</td>
+        <td>20</td>
+        <th>100</th>
+    </tr>
+    <tr>
+        <td>505</td>
+        <td>NAVEEN</td>
+        <td>60</td>
+        <td>20</td>
+        <td>20</td>
+        <th>100</th>
+    </tr>
+    <tr>
+    <th colspan="5" class="text-center">FINAL</th> 
+    attribute binding 
+    <th [attr.colspan]="clSpan" class="text-center">FINAL</th>
+    <th>500</th>
+    </tr>
+    </tbody>
+
+  </table>
+  <img style="height: 30px;width: 50px;" src="{{imgUrl}}"> 
+        property binding 
+ <img [src]="imgUrl">
+
+ <reddyapp></reddyapp>
+
+ <button class="btn" [class.btn-danger]="iamSingle">SAVE</button>
+ <br>
+ <br>
+ <button (click)="showAlert()" class="btn" style="color: yellow" [style.backgroundColor]="iamSingle ? 'red' : 'orange'">REGISTER</button>
+ 
+ <login></login>
+ 
+ <navreg></navreg>
+ <h1>{{title}}</h1>
+ <h3>{{title | uppercase}}</h3>
+ <h3>{{title | lowercase}}</h3>
+ <h3>{{dateofBirth | date}}</h3>
+ <h3>{{dateofBirth | date:'long'}}</h3>
+ <h3>{{dateofBirth | date:'medium'}}</h3>
+ <h3>{{dateofBirth | date:'short'}}</h3>
+ <h1>{{salary | currency:'INR'}}</h1> 
+ <course></course> -->
+ <div class="container">
+ <div style="text-align: center;color: red;font-weight: bold;font-size: 25px;color: white;">{{topic}}</div>
+ <hr style="margin: auto;">
+ <table class="component-style">
+    <tr>
+        <td>
+            <ul>
+                <li><a routerLinkActive="active" routerLink="/home">HOME</a></li>
+                <li><a routerLinkActive="active" routerLink="/login">LOGIN</a></li>
+                <li><a routerLinkActive="active" routerLink="/registration">REGISTRATION</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/register">REGISTER</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/contact">CONTACT</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/reddyapp">APP</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/hero">APPS</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/course">COURSE</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/navreg">NAVREG</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/contact-form">CONTACT-FORM</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/post">CRUD-POST</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/mypost">CRUD-MYPOST</a></li>
+                <li *ngIf="authService.token && authService.role == 'admin' "><a routerLinkActive="active" routerLink="/invoice">INVOICE</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/items">ITEMS</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/employee">EMPLOYEE</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/student">STUDENT</a></li>
+                <li *ngIf="authService.token"><a routerLinkActive="active" routerLink="/flag">FLAG</a></li>
+                <li *ngIf="authService.token"><a (click)="logout()">LOGOUT</a></li>
+                <li *ngIf="authService.token" style="float: right;">
+                    <label class="userName">{{authService.name}}</label>
+                </li>
+            </ul>
+        </td>
+    </tr>
+ </table>
+ <router-outlet></router-outlet>
+ 
+
+ <!-- <div [ngSwitch]="menuItem">
+    <div *ngSwitchCase="'home'">
+        <home></home>
+    </div>
+    <div *ngSwitchCase="'login'">
+        <login></login>
+    </div>
+    <div *ngSwitchCase="'registration'">
+        <registration></registration>
+    </div>
+    <div *ngSwitchCase="'register'">
+        <register></register>
+    </div>
+    <div *ngSwitchCase="'contact'">
+        <contact></contact>
+    </div>
+    <div *ngSwitchCase="'reddyapp'">
+        <reddyapp></reddyapp>
+    </div>
+    <div *ngSwitchCase="'hero'">
+        <hero></hero>
+    </div>
+    <div *ngSwitchCase="'course'">
+        <course></course>
+    </div>
+    <div *ngSwitchCase="'navreg'">
+        <navreg></navreg>
+    </div>
+    <div *ngSwitchCase="'contact-form'">
+        <contact-form></contact-form>
+    </div>
+    <div *ngSwitchCase="'post'">
+        <post></post>
+    </div>
+    <div *ngSwitchCase="'mypost'">
+        <mypost></mypost>
+    </div>
+ </div> -->
+</div>
+
+
+ 
+
+
+
+ 
+ 

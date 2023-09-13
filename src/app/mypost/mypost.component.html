@@ -1,0 +1,18 @@
+<div class="component-style card">
+<table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>USER-ID</th>
+        <th>TITLE</th>
+        <th>BODY</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let NAV of mypost">
+      <td>{{NAV.id}}</td>
+      <td>{{NAV.userId}}</td>
+      <td>{{NAV.title}}</td>
+      <td>{{NAV.body}}</td>
+    </tbody>
+  </table>
+</div>

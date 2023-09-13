@@ -1,0 +1,98 @@
+<div class="card component-style">
+    <div style="text-align: right;margin-bottom: 5px;">
+        <button (click)="addEmployee()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#empModal">
+            <i class="bi bi-person-fill-add"></i> ADD
+        </button>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>City</th>
+                <th>Action(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employees | paginate: { itemsPerPage: 5, currentPage: pageNumber }">
+                <td>{{ emp.id }}</td>
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.email }}</td>
+                <td>{{ emp.salary | currency:'INR'}}</td>
+                <td>{{ emp.city}}</td>
+                <td>
+                    <button (click)="editEmployee(emp)" data-bs-toggle="modal" data-bs-target="#empModal"
+                        class="btn btn-outline-secondary"><i class="bi bi-pencil-square"></i></button>
+                    &nbsp;
+                    <button (click)="deleteEmployee(emp.id)" class="btn btn-outline-danger"><i
+                            class="bi bi-trash"></i></button>
+                    &nbsp;
+                    <button [routerLink]="['/employee',emp.id]" class="btn btn-outline-info"><i
+                            class="bi bi-book"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="text-align: center;">
+                    <pagination-controls (pageChange)="pageNumber = $event"></pagination-controls>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="empModal" tabindex="-1" aria-labelledby="empModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="empModalLabel">{{ title }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="empForm">
+                        <div class="mb-3">
+                            <input formControlName="name" [(ngModel)]="employee.name" class="form-control" name="name"
+                                placeholder="Enter the name">
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="email" [(ngModel)]="employee.email" class="form-control"
+                                name="email" placeholder="Enter the email">
+                        </div>
+                        <div class="mb-3">
+                            <label>Gender:</label>
+                            &nbsp;
+                            <label class="radio-inline">
+                                <input formControlName="gender" type="radio" name="gender" value='Male'
+                                    [(ngModel)]="employee.gender">Male
+                            </label>
+                            &nbsp;
+                            <label class="radio-inline">
+                                <input formControlName="gender" type="radio" name="gender" value='FeMale'
+                                    [(ngModel)]="employee.gender">FeMale
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" formControlName="mobileNumber" [(ngModel)]="employee.mobileNumber"
+                                class="form-control" name="mobileNumber" placeholder="Enter the mobileNumber">
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" formControlName="salary" [(ngModel)]="employee.salary"
+                                class="form-control" name="salary" placeholder="Enter the salary">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="city" [(ngModel)]="employee.city" class="form-control"
+                                name="city" placeholder="Enter the city">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button data-bs-dismiss="modal" [disabled]="empForm.invalid" (click)="saveEmployee()" type="button"
+                        class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,225 @@
+
+<!-- <div class="component-style card">
+<h2 class="style3"> Let Create Registration page<h2>
+    <p class="style1">
+            A carefully crafted collection of the Best
+            free registration form templates based on Bootstrap 
+            to create engaging sign-up pages.
+    </p>
+    
+
+<h6>{{ 'list of branches: '+title}}</h6>
+    <ul>
+<h6><u>{{getTitle()}}</u></h6>
+        <li>cse</li>
+        <li>eee</li>
+        <li>ece</li>
+        <li>civil</li>
+        <li>mech</li>
+    </ul>
+
+    <h6>list of courses with *ng derectives</h6>
+    <ol class="style4">
+        <li *ngFor="let item of courses">{{ item }}</li>
+    </ol> -->
+
+    <div class="component-style card">
+    
+        <form #registration="ngForm" >
+            <div class="mb-3">
+                <label for="firstname">First Name</label>
+                <input id="firstname" type="text" class="form-control" #firstname="ngModel" ngModel name="firstname" required>
+                <div *ngIf=" isSubmitted && firstname.invalid" class="alert alert-danger">
+                    Please select firstname....#
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="lastname">Last Name</label>
+                <input id="lastname" type="text" class="form-control" #lastname="ngModel" ngModel name="lastname" required>
+                <div *ngIf=" isSubmitted && lastname.invalid" class="alert alert-danger">
+                    Please select lastname...#
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email">E-Mail</label>
+                <input id="email" type="text" class="form-control" #email="ngModel" ngModel name="email" required>
+                <div *ngIf=" isSubmitted && email.invalid" class="alert alert-danger">
+                    Please select email....#
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Gender</label>
+                <div class="form-control">
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="male" ngModel #gender="ngModel" required>
+                        MALE
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="female" ngModel #gender="ngModel" required>
+                        FEMALE
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="others" ngModel #gender="ngModel" required >
+                        OTHERS
+                    </label>
+                    <div *ngIf=" isSubmitted && gender.invalid" class="alert alert-danger">
+                        Please select gender...#
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="state">STATE</label>
+                <select id="state" name="state" required #state="ngModel" ngModel class="form-control">
+                    <option value="1">Andhra pradesh</option>
+                    <option value="2">Telangana</option>
+                    <option value="3">Kerala</option>
+                    <option value="4">kurnool</option>
+                    <option value="5">Mumbai</option>
+                </select>
+                <div *ngIf="isSubmitted && state.invalid" class="alert alert-danger">
+                    Please select state...#
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="checkbox-inline">
+                    <input type="checkbox" #isAccepted="ngModel" name="isAccepted" ngModel required>If we are Accepted terms & Conditions
+                </label>
+                <div *ngIf="isSubmitted && isAccepted.invalid" class="alert alert-danger">
+                    If we are Accepted terms & Conditions.....#
+                </div>
+            </div>
+            <button (click)="submitForm(registration)" class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Example for templateform....# -->
+    
+    <br>
+    <div class="component-style card">
+        <label style="color: red;text-align: center;">Template form</label>
+        <div class="dv-container">
+            <div class="dv-title">REGISTRATION</div>
+        </div>
+        <form #registration="ngForm" >
+            <div class="mb-3">
+                <label for="username">User Name</label>
+                <input id="username" type="text" class="form-control" #username="ngModel" ngModel name="username" required>
+                <div *ngIf=" isSubmitted && firstname.invalid" class="alert alert-danger">
+                    Please enter username....#
+                </div>
+            </div>
+            <div class="mb-3" style="color: red;font-weight: bold;">
+                <label for="parentname">PARENT'S NAME</label>
+            </div>
+            <div class="mb-3">
+                <label for="mothername">Mother Name</label>
+                <input id="mothername" type="text" class="form-control" #mothername="ngModel" ngModel name="mothername" required>
+                <div *ngIf=" isSubmitted && mothername.invalid" class="alert alert-danger">
+                    Please enter mothername...#
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="fathername">Father Name</label>
+                <input id="fathername" type="text" class="form-control" #fathername="ngModel" ngModel name="fathername" required>
+                <div *ngIf=" isSubmitted && fathername.invalid" class="alert alert-danger">
+                    Please enter fathername...#
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email" style="color: red;font-weight: bold;">E-Mail</label>
+                <input id="email" type="text" class="form-control" #email="ngModel" ngModel name="email" required>
+                <div *ngIf=" isSubmitted && email.invalid" class="alert alert-danger">
+                    Please enter email....#
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="code" style="color: red;font-weight: bold;">Password</label>
+                <input id="code" type="password" class="form-control" #code="ngModel" ngModel name="code" required>
+                <div *ngIf=" isSubmitted && code.invalid" class="alert alert-danger">
+                    Enter Password....#
+                </div>
+            </div>
+            <div class="mb-3">
+                <label style="color: red;font-weight: bold;">GENDER</label>
+                <div class="form-control">
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="male" ngModel #gender="ngModel" required>
+                        MALE
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="female" ngModel #gender="ngModel" required>
+                        FEMALE
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="others" ngModel #gender="ngModel" required >
+                        OTHERS
+                    </label>
+                    <div *ngIf=" isSubmitted && gender.invalid" class="alert alert-danger">
+                        Please select gender...#
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="country" style="color: red;font-weight: bold;">COUNTRY</label>
+                <select id="country" name="country" required #country="ngModel" ngModel class="form-control">
+                    <option value="1">india</option>
+                    <option value="2">australia</option>
+                    <option value="3">canada</option>
+                    <option value="4">new york</option>
+                    <option value="5">brezil</option>
+                </select>
+                <div *ngIf="isSubmitted && country.invalid" class="alert alert-danger">
+                    Please select country...#
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="checkbox-inline">
+                    <input type="checkbox" #isAccepted="ngModel" name="isAccepted" ngModel required>If we are Accepted terms & Conditions
+                </label>
+                <div *ngIf="isSubmitted && isAccepted.invalid" class="alert alert-danger">
+                    If we are Accepted terms & Conditions.....#
+                </div>
+            </div>
+            <button (click)="submitForm(registration)" class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Example for Reactive form......# -->
+    <br>
+    <div class="component-style card">
+        <label style="color: red;text-align: center;">Reactive form</label>
+        <div class="dv-container">
+            <div class="dv-title">
+                REGISTRATION
+            </div>
+        </div>
+        <form [formGroup]="registrationForm">
+            <div class="mb-2">
+                <input formControlName="username" name="username" type="text" placeholder="Enter User Name...#" class="form-control">
+                <div *ngIf="uName?.touched && uName?.invalid">
+                    <div *ngIf="uName?.errors?.['required']" class="alert alert-danger">
+                        please enter username....#
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <input formControlName="lock" name="lock" type="text" placeholder="Enter User Lockpassword...#" class="form-control">
+                <div *ngIf="loCk?.touched && loCk?.invalid">
+                    <div *ngIf="loCk?.errors?.['required']" class="alert alert-danger">
+                        please enter password....#
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <input formControlName="forgotpassword" name="forgotpassword" type="text" placeholder="Enter forgotpassword...#" class="form-control">
+                <div *ngIf="forgotPassword?.touched && forgotPassword?.invalid">
+                    <div *ngIf="forgotPassword?.errors?.['required']" class="alert alert-danger">
+                        please enter forgotPassword....#
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <button [disabled]="registrationForm.invalid" class="btn btn-primary">REGISTER</button>
+            </div>
+        </form>
+    </div>

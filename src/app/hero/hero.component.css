@@ -1,0 +1,38 @@
+.style1{
+    color: red;
+    font-family: fantasy;
+    border: 10px solid blue;
+    width: 300px;
+    height: 50px;
+    margin-inline-start: 400px;
+    font-size: 20px;
+}
+.style2 {
+    color: blue;
+    font-family: fantasy;
+    border: 10px solid greenyellow;
+    width: 325px;
+    height: 50px;
+    margin-inline-start: 400px;
+    font-size: 20px;
+   
+}
+.style3{
+    color: brown;
+    font-family: cursive;
+    font-weight: bold;
+    border: 10px solid goldenrod;
+   
+}
+.style4{
+    color: blue;
+    font-size: 20px;
+    font-family: Times New Roman;
+    border: 10px solid grey;
+    
+}
+
+.style5{
+    border: 25px solid red;
+    
+}

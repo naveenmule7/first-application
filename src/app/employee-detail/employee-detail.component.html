@@ -1,0 +1,52 @@
+<div class="card component-style">
+    <div class="card text-center">
+        <div style="font-weight: bold;" class="card-header">
+            Employee Details
+        </div>
+        <div class="card-body">
+            <table style="width:45%;margin: auto;">
+                <tr>
+                    <td style="text-align: right;font-weight: bold;">Name : </td>
+                    <td>
+                        <h5 class="card-title">{{ employee.name }}</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;font-weight: bold;">Email Address : </td>
+                    <td>
+                        <p class="card-text">{{ employee.email }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;font-weight: bold;">Gender : </td>
+                    <td>
+                        <p class="card-text">{{ employee.gender}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;font-weight: bold;">Mobile Number : </td>
+                    <td>
+                        <p class="card-text">{{ employee.mobileNumber }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;font-weight: bold;">Salary : </td>
+                    <td>
+                        <p class="card-text">{{ employee.salary | currency:'INR' }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;font-weight: bold;">City : </td>
+                    <td>
+                        <p class="card-text">{{ employee.city }}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="card-footer text-body-secondary">
+            <a routerLink="/employee" class="btn btn-outline-secondary">
+                <i class="bi bi-chevron-double-left"></i>GO BACK TO LIST
+            </a>
+        </div>
+    </div>
+</div>

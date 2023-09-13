@@ -1,0 +1,113 @@
+
+
+<div class="component-style card">
+  
+    <div class="mb-3">
+      <label for="emailAddress" class="form-label">Email address</label>
+      <input #emailAddress="ngModel" ngModel name="emailAddress" required minlength="10" [(ngModel)]="loginModel.emailAddress" type="email" class="form-control" id="emailAddress">
+      <div *ngIf="emailAddress.touched && emailAddress.invalid" >
+        <div *ngIf="emailAddress.errors?.['required']" class="alert alert-danger" role="alert">
+            E-Mail is not mentioned.....#
+         </div>
+        <div *ngIf="emailAddress.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+     <!-- 2 way data binding -->
+    <!-- <div>
+      <input [(ngModel)]="loginModel.emailAddress" disabled type="email" class="form-control" id="emailAddress">
+    </div> -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input #password="ngModel" ngModel name="password" required minlength="10" [(ngModel)]="loginModel.password" 
+      type="password" class="form-control" id="password">
+      <div *ngIf="password.touched && password.invalid" >
+        <div *ngIf="password.errors?.['required']" class="alert alert-danger" role="alert">
+            E-Mail is not mentioned.....#
+         </div>
+        <div *ngIf="password.errors?.['minlength']" class="alert alert-danger" role="alert">
+        please enter minimum 10 characters...#
+         </div>
+      </div>
+    </div>
+     <!-- 2 way data binding -->
+    <!-- <div>
+      <input [(ngModel)]="loginModel.password" disabled type="password" class="form-control" id="password">
+    </div> -->
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="Checkme">
+      <label class="form-check-label" for="Checkme">Check me out</label>
+    </div>
+    <button (click)="login()" type="submit" class="btn btn-primary">LOGIN</button>
+</div>
+
+ 
+
+<!-- <div class="component-style card">
+  <label style="color: red;text-align: center;">template form</label>
+  <div class="mb-3">
+    <label for="username" class="form-label">User Name</label>
+    <input type="text" #username="ngModel" ngModel name="username" required minlength="10"  class="form-control" id="username" >
+    <div *ngIf="username.touched && username.invalid">
+      <div *ngIf="username.errors?.['required']" class="alert alert-danger" role="alert">
+         Please enter currect username...#
+      </div>
+      <div *ngIf="username.errors?.['minlength']" class="alert alert-danger" role="alert">
+        enter minimum 10 characters...#
+      </div>
+    </div>
+</div>
+<div class="mb-3">
+  <label for="passcord" class="form-label">Password</label>
+  <input type="passcord" #passcord="ngModel" ngModel name="passcord" required minlength="5" class="form-control" id="passcord">
+  <div *ngIf="passcord.touched && passcord.invalid">
+    <div *ngIf="passcord.errors?.['required']" class="alert alert-danger" role="alert">
+      Please enter password...#
+    </div>
+    <div *ngIf="passcord.errors?.['minlength']" class="alert alert-danger">
+      enter minimum 5 characters...#
+    </div>
+  </div>
+</div>
+<button  type="submit" class="btn btn-primary">Log-oN</button>
+</div>
+
+
+<div class="component-style card">
+  <label style="color: red;text-align: center;">Reactive Form</label>
+  <div class=" dv-container">
+    <div class="dv-title mb-2">
+      LOGIN PAGE
+    </div>
+  </div>
+  <br>
+    <form [formGroup]="loginForm">
+      <div class="mb-2">
+        <input formControlName="username" name="username" type="text" placeholder="Please enter username" class="form-control">
+        <div *ngIf="Uname?.touched && Uname?.invalid">
+          <div *ngIf="Uname?.errors?.['required']" class="alert alert-danger">
+            Please enter username...#
+          </div>
+          <div *ngIf="Uname?.errors?.['minlength']" class="alert alert-danger">
+            enter minimum 5 characters...#
+          </div>
+        </div>
+      </div>
+      <div class="mb-2">
+        <input formControlName="passwords" name="passwords" type="text" placeholder="Please enter username" class="form-control">
+        <div *ngIf="Passwords?.touched && Passwords?.invalid">
+          <div *ngIf="Passwords?.errors?.['required']" class="alert alert-danger">
+            Please enter passwords...#
+          </div>
+          <div *ngIf="Passwords?.errors?.['minlength']" class="alert alert-danger">
+            enter minimum 5 characters...#
+          </div>
+        </div>
+      </div>
+      <div class="mb-2">
+        <button [disabled]="loginForm.invalid" class="btn btn-primary">LOGIN</button>
+      </div>
+    </form>
+</div> -->
+

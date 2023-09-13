@@ -1,0 +1,26 @@
+<!-- structural directives -->
+<div class="component-style card">
+<h3 *ngIf="navcourse.length > 0">List of courses</h3>
+<h3 *ngIf="navcourse.length ==0">No List of courses</h3>
+<ul>
+    <li *ngFor = 'let item of navcourse'>
+        {{item}}
+    </li>
+</ul>
+<button class="btn btn-primary" [class.class1]="navcourse.length > 0" [class.class2]="navcourse.length > 0">SAVE</button>
+<br>
+<button class="btn btn-primary" [ngClass]="{'class1':navcourse.length > 0,'class2':navcourse.length > 0}">SAVE-2</button>
+<br>
+<button class="btn" [style.backgroundColor]="navcourse.length > 0 ? 'yellow':'green'"
+    [style.color]="navcourse.length > 0 ? 'red':'pink' ">REG</button>
+</div>
+<!-- <h3 hidden>Hi hello namaste this is naveen from ongole</h3>
+<h4 hidden>Hello GoodMorning my dear friend</h4>
+
+<h3 [hidden]="navcourse.length ==0">List of courses</h3>
+<h3 [hidden]="navcourse.length > 0">No List of courses</h3>
+<ul>
+    <li *ngFor = 'let item of navcourse'>
+        {{item}}
+    </li>
+</ul> -->

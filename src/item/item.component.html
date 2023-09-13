@@ -1,0 +1,13 @@
+                <div class="card">
+                    <img style="height: 200px; width: 200px;" [src]="itemData.imageUrl" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ itemData.name }}</h5>
+                        <p class="card-text">{{ itemData.category }}</p>
+                        <p class="card-text">{{ itemData.unitPrice | currency: 'INR' }}</p>
+                        <h6>{{phone}}</h6>
+                        <button (click)="addToCart()" href="#" class="btn btn-primary">ADD TO CART</button>
+                        
+                    </div>
+                </div>
+                
+            

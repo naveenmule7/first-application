@@ -1,0 +1,135 @@
+<!-- HTML-> file calls template -->
+<!-- <div class="component-style card">
+<h2 class="style1">hi this is naveen from ongole</h2>
+
+<h3>List of Names</h3>
+<ol>
+    <li>NAVEEN</li>
+    <li>NAVEEN</li>
+    <li>NAVEEN</li>
+    <li>NAVEEN</li>
+    <li>NAVEEN</li>
+</ol> -->
+<!--{{}}-> string interpolation1 -->
+<!-- <h1>{{ 'This is my : ' +title }}</h1> -->
+<!-- string interpolation examples
+<h1>{{ 100+100 }}</h1>
+<h1>{{ 100==100 }}</h1> -->
+<!-- <h1>{{ getTitle() }}</h1> -->
+
+    <!-- derectives-1 -->
+<!-- <ul class="style2">
+    <li *ngFor="let item of lpnames">
+        {{ item }}
+    </li>
+</ul> -->
+<!-- derectives-2 -->
+<!-- <ul>
+    <li> HP</li>
+    <li>DELL</li>
+    <li>LENEVO</li>
+    <li>ASUSE</li>
+    <li>TOSHIBHA</li>
+</ul>
+</div> -->
+
+<div class="card component-style">
+    <div class="dv-container">
+        <div class="dv-title mb-2">
+            REGISTER
+        </div>
+    </div>
+        <form [formGroup]="registerForm">
+            <div class="mb-2">
+                <input formControlName="firstname"  name="firstname" type="text" placeholder="Enter First Name" class="form-control">
+                <div *ngIf="fName?.touched && fName?.invalid" >
+                    <div *ngIf="fName?.errors?.['required']" class="alert alert-danger">
+                    please enter the firstname....#
+                    </div>
+                    <div *ngIf="fName?.errors?.['minlength']" class="alert alert-danger">
+                        minimum 5 chars enter....#
+                    </div>
+
+                </div>
+            </div>
+            <div class="mb-2">
+                <input formControlName="lastname" name="lastname" type="text" placeholder="Enter Last Name" class="form-control">
+                <div *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.invalid" class="alert alert-danger">
+                    please enter the lastname....#
+                </div>
+            </div>
+            <div class="mb-2">
+                <input formControlName="fullname" name="fullname" type="text" placeholder="Enter Full Name" class="form-control">
+                <div *ngIf="registerForm.get('fullname')?.touched && registerForm.get('fullname')?.invalid" class="alert alert-danger">
+                    please enter the fullname....#
+                </div>
+            </div>
+            <div class="mb-2">
+                <input formControlName="email" name="email" type="text" placeholder="Enter Email Address" class="form-control">
+                <div *ngIf="gmail?.touched && gmail?.invalid">
+                    <div *ngIf="gmail?.errors?.['required']" class="alert alert-danger">
+                    please enter the email....#
+                    </div>
+                    <div *ngIf="gmail?.errors?.['spaceExists']" class="alert alert-danger">
+                        Email shouldnot contail spaces..#
+                    </div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <input formControlName="phonenumber" name="phone" type="text" placeholder="Enter Phone Number" class="form-control">
+                <div *ngIf="registerForm.get('phonenumber')?.touched && registerForm.get('phonenumber')?.invalid" class="alert alert-danger">
+                    please enter the Phone Number....#
+                </div>
+            </div>
+            <div class="mb-2">
+                <button [disabled]="registerForm.invalid" class="btn btn-primary">REGISTER</button>
+            </div>
+        </form>
+
+
+            <!-- Example for templateform...# -->
+            <label style="color: red;text-align: center;">Template Form</label>
+            <h3 style="font-weight: bold;text-align: center;">REGISTRATION</h3>
+            <div class="component-style card">
+            <div class="mb-3">
+                <label for="productname" class="form-label">Product Name</label>
+                <input #productname="ngModel" ngModel name="productname" required minlength="5" type="text" class="form-control" 
+                  id="productname">
+                  <div *ngIf="productname.touched && productname.invalid" >
+                      <div *ngIf="productname.errors?.['required']" class="alert alert-danger" role="alert">
+                          Enter Product Name.....#
+                       </div>
+                      <div *ngIf="productname.errors?.['minlength']" class="alert alert-danger" role="alert">
+                      please enter minimum 5 characters...#
+                       </div>
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label for="productmodel" class="form-label">Product Model</label>
+                <input #productmodel="ngModel" ngModel name="productmodel" required minlength="5" type="text" class="form-control" id="productmodel">
+                <div *ngIf="productmodel.touched && productmodel.invalid">
+                    <div *ngIf="productmodel.errors?.['required']" class="alert alert-danger" role="alert">
+                        Enter Product Model...#
+                    </div>
+                    <div *ngIf="productmodel.errors?.['minlength']" class="alert alert-danger" role="alert">
+                        Enter minimum 5 characters
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="servicenumber" class="form-label">Service Number</label>
+                <input #servicenumber="ngModel" ngModel name="servicenumber" required minlength="5" type="text" class="form-control" id="servicenumber">
+                <div *ngIf="servicenumber.touched && servicenumber.invalid">
+                    <div *ngIf="servicenumber.errors?.['required']" class="alert alert-danger" role="alert">
+                        Enter Product Service No...#
+                    </div>
+                    <div *ngIf="servicenumber.errors?.['minlength']" class="alert alert-danger" role="alert">
+                        Enter minimum 5 characters
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
